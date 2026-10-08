@@ -1,0 +1,42 @@
+<section id="contact" class="section container" aria-labelledby="contact-title">
+  <span class="watermark" aria-hidden="true">CONTACT</span>
+  <p class="eyebrow">05 / Contact</p>
+  <h2 id="contact-title">{{ site.Home.Params.contact.title }}</h2>
+  <p class="section-subtitle">{{ site.Home.Params.contact.subtitle }}</p>
+  <div class="contact-grid">
+    <div class="contact-info fade-in">
+      <dl>
+        <dt>Email</dt>
+        <dd><a href="mailto:{{ site.Params.contact.email }}">{{ site.Params.contact.email }}</a></dd>
+        <dt>Phone</dt>
+        <dd><a href="tel:+8801864873043">{{ site.Params.contact.phone }}</a></dd>
+        <dt>Location</dt>
+        <dd>{{ site.Params.contact.location }}</dd>
+      </dl>
+      {{ partial "components/social-links.html" . }}
+    </div>
+    {{ $netlify := eq site.Params.contact.provider "netlify" }}
+    <form class="contact-form fade-in" id="contactForm" name="contact" method="POST"
+          action="{{ if $netlify }}{{ "thank-you/" | relURL }}{{ else }}{{ site.Params.contact.action }}{{ end }}"
+          {{ if $netlify }}data-netlify="true" netlify-honeypot="bot-field"{{ end }}
+          data-provider="{{ site.Params.contact.provider }}">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="honeypot" aria-hidden="true">
+        <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <div class="field">
+        <input id="name" name="name" type="text" placeholder=" " required autocomplete="name" maxlength="100">
+        <label for="name">Name</label>
+      </div>
+      <div class="field">
+        <input id="email" name="email" type="email" placeholder=" " required autocomplete="email" maxlength="254">
+        <label for="email">Email</label>
+      </div>
+      <div class="field">
+        <textarea id="message" name="message" placeholder=" " required rows="5" maxlength="5000"></textarea>
+        <label for="message">Message</label>
+      </div>
+      <button class="button" type="submit">Send Message <span aria-hidden="true">↗</span></button>
+    </form>
+  </div>
+</section>

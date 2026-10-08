@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="container document">
+  <p class="eyebrow"><a href="{{ "projects/" | relURL }}">← Projects</a></p>
+  <h1>{{ .Title }}</h1>
+  <p class="section-subtitle">{{ .Description }}</p>
+  {{ with .Resources.GetMatch .Params.image }}
+    {{ $cover := .Resize "1200x webp" }}
+    <img class="detail-cover" src="{{ $cover.RelPermalink }}" alt="{{ $.Title }}"
+         width="{{ $cover.Width }}" height="{{ $cover.Height }}" decoding="async">
+  {{ end }}
+  <ul class="tags">
+    {{ range .Params.tools }}<li>{{ . }}</li>{{ end }}
+  </ul>
+  <div class="prose">{{ .Content }}</div>
+  <div class="project-links">
+    {{ with .Params.githubUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>{{ end }}
+    {{ with .Params.liveUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Live ↗</a>{{ end }}
+    {{ with .Params.dashboardUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Dashboard ↗</a>{{ end }}
+  </div>
+</article>
+{{ end }}

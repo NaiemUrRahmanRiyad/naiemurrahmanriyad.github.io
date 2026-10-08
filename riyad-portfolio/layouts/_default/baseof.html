@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body data-roles="{{ site.Params.hero.roles | jsonify }}"
+      data-home="{{ site.Home.RelPermalink }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{ partial "components/loader.html" . }}
+  {{ partial "components/cursor.html" . }}
+  {{ partial "components/scroll-progress.html" . }}
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  {{ partial "header.html" . }}
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  {{ partial "components/back-to-top.html" . }}
+  {{ partial "components/toast.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+</html>

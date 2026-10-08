@@ -1,0 +1,23 @@
+- name: Programming Languages
+  emoji: "💻"
+  items: [Python, SQL, "C++"]
+
+- name: Databases
+  emoji: "🗄️"
+  items: [MySQL, PostgreSQL]
+
+- name: Tools & Version Control
+  emoji: "🛠️"
+  items: [Appsmith, GitHub]
+
+- name: Data Visualization
+  emoji: "📊"
+  items: [Power BI, Metabase, Matplotlib, Seaborn, Excel, Google Sheets]
+
+- name: Machine Learning
+  emoji: "🤖"
+  items: [Supervised Learning, Unsupervised Learning, Model Evaluation, SHAP / XAI]
+
+- name: Soft Skills
+  emoji: "🧠"
+  items: [Leadership, Time Management, Learning Agility, Interpersonal Skills]

@@ -1,0 +1,56 @@
+{{ $title := site.Title }}
+{{ if not .IsHome }}{{ $title = printf "%s | %s" .Title site.Title }}{{ end }}
+{{ $description := .Description | default site.Params.description }}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="theme-color" content="{{ site.Params.themeColor }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="twitter:card" content="{{ if site.Params.ogImage }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ with site.Params.ogImage }}
+<meta property="og:image" content="{{ . | absURL }}">
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{ end }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+{{ $files := slice
+  (resources.Get "css/base.css")
+  (resources.Get "css/layout.css")
+  (resources.Get "css/components.css")
+  (resources.Get "css/sections.css")
+  (resources.Get "css/animations.css")
+}}
+{{ $css := $files | resources.Concat "css/portfolio.css" }}
+{{ if hugo.IsProduction }}
+  {{ $css = $css | minify | fingerprint "sha384" }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}"
+        integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+{{ else }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ end }}
+
+{{ $socials := slice }}
+{{ range site.Params.socials }}{{ $socials = $socials | append .url }}{{ end }}
+{{ $person := dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" site.Home.Title
+  "url" site.Home.Permalink
+  "jobTitle" site.Home.Params.hero.role
+  "email" (printf "mailto:%s" site.Params.contact.email)
+  "sameAs" $socials
+}}
+<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>

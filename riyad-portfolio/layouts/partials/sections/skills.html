@@ -1,0 +1,33 @@
+<section id="skills" class="section container" aria-labelledby="skills-title">
+  <span class="watermark" aria-hidden="true">SKILLS</span>
+  <p class="eyebrow">02 / Skills</p>
+  <h2 id="skills-title">Skills</h2>
+  <div class="card-grid">
+    {{ range site.Data.skills }}
+    <article class="card fade-in">
+      <span class="skill-emoji" aria-hidden="true">{{ .emoji }}</span>
+      <h3>{{ .name }}</h3>
+      <ul class="tags" aria-label="{{ .name }}">
+        {{ range .items }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </article>
+    {{ end }}
+  </div>
+  <h3 class="tech-heading">Tools & Technologies</h3>
+  <ul class="technology-grid">
+    {{ range site.Data.technologies }}
+    <li class="technology fade-in">
+      {{ with resources.Get (printf "techs/%s" .icon) }}
+        {{ if eq .MediaType.SubType "svg" }}
+          <img src="{{ .RelPermalink }}" alt="" width="32" height="32" loading="lazy">
+        {{ else }}
+          {{ $icon := .Fit "64x64 webp" }}
+          <img src="{{ $icon.RelPermalink }}" alt=""
+               width="{{ $icon.Width }}" height="{{ $icon.Height }}" loading="lazy">
+        {{ end }}
+      {{ end }}
+      <span>{{ .name }}</span>
+    </li>
+    {{ end }}
+  </ul>
+</section>

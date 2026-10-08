@@ -1,0 +1,26 @@
+- title: BSc in Computer Science & Engineering
+  institution: Daffodil International University
+  period: Jan 2022 – Jan 2026
+  result: CGPA 3.50 / 4.00
+  draft: false
+
+- title: Higher Secondary Certificate (HSC)
+  institution: Alomgir Monsur Mintu Memorial College
+  period: "2020"
+  result: GPA 4.83 / 5.00
+  draft: false
+
+- title: Secondary School Certificate (SSC)
+  institution: Bisweswari Govt. Pilot High School
+  period: "2018"
+  result: GPA 4.67 / 5.00
+  draft: false
+
+# These entries stay unpublished until you verify and enable them.
+- title: M.Sc. in CSE (Data Science major)
+  institution: Daffodil International University
+  draft: true
+
+- title: Business Analyst Intern
+  institution: Allex Design and Development Ltd.
+  draft: true

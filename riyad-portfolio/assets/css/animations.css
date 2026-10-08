@@ -1,0 +1,19 @@
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes loading { from { transform: scaleX(.2); } to { transform: scaleX(1); } }
+
+body.motion .fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+body.motion .fade-in.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .fade-in { opacity: 1 !important; transform: none !important; }
+  #heroCanvas, .cursor-dot, .cursor-outline { display: none !important; }
+}

@@ -1,0 +1,18 @@
+<section id="education" class="section container" aria-labelledby="education-title">
+  <span class="watermark" aria-hidden="true">EDU</span>
+  <p class="eyebrow">04 / Education</p>
+  <h2 id="education-title">Education</h2>
+  <ol class="timeline">
+    {{ range site.Data.education }}
+    {{ if not .draft }}
+    <li class="fade-in">
+      <div class="timeline-dot" aria-hidden="true"></div>
+      <p class="eyebrow">{{ .period }}</p>
+      <h3>{{ .title }}</h3>
+      <p>{{ .institution }}</p>
+      {{ with .result }}<span class="result">{{ . }}</span>{{ end }}
+    </li>
+    {{ end }}
+    {{ end }}
+  </ol>
+</section>

@@ -1,0 +1,39 @@
+<section id="projects" class="section container" aria-labelledby="projects-title">
+  <span class="watermark" aria-hidden="true">WORK</span>
+  <p class="eyebrow">03 / Projects</p>
+  <h2 id="projects-title">{{ site.Home.Params.projects.title }}</h2>
+  <p class="section-subtitle">{{ site.Home.Params.projects.subtitle }}</p>
+  {{ $projects := (where site.RegularPages "Section" "projects").ByWeight }}
+  {{ if $projects }}
+  <div class="card-grid">
+    {{ range $projects }}
+    <article class="card project-card fade-in">
+      {{ with .Resources.GetMatch .Params.image }}
+        {{ $cover := .Resize "720x webp" }}
+        <img class="project-cover" src="{{ $cover.RelPermalink }}"
+             alt="{{ $.Title }} project cover"
+             width="{{ $cover.Width }}" height="{{ $cover.Height }}"
+             loading="lazy" decoding="async">
+      {{ end }}
+      {{ with .Params.category }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Description }}</p>
+      <ul class="tags">
+        {{ range .Params.tools }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      <div class="project-links">
+        {{ with .Params.githubUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>{{ end }}
+        {{ with .Params.liveUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Live ↗</a>{{ end }}
+        {{ with .Params.dashboardUrl }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Dashboard ↗</a>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="empty-state fade-in">
+    <span aria-hidden="true">⌘</span>
+    <h3>No projects yet</h3>
+    <p>Check back soon for updates!</p>
+  </div>
+  {{ end }}
+</section>

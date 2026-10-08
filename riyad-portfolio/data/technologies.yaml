@@ -1,0 +1,18 @@
+- { name: BigQuery, icon: bigquery.jpeg }
+- { name: C, icon: c.png }
+- { name: "C++", icon: cpp.png }
+- { name: CSS, icon: css.png }
+- { name: Excel, icon: excel.png }
+- { name: Firebase, icon: firebase.png }
+- { name: GitHub, icon: github.png }
+- { name: HTML, icon: html.png }
+- { name: JavaScript, icon: javascript.png }
+- { name: Metabase, icon: metabase.svg }
+- { name: MongoDB, icon: mongodb.png }
+- { name: NumPy, icon: numpy.png }
+- { name: Oracle, icon: oracle.png }
+- { name: PostgreSQL, icon: postgresql.jpg }
+- { name: Power BI, icon: powerbi.png }
+- { name: Python, icon: python.png }
+- { name: SQL, icon: sql.png }
+- { name: Tableau, icon: tableau.png }

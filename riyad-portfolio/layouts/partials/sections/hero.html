@@ -1,0 +1,29 @@
+<section id="home" class="hero container" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow">{{ .Params.hero.greeting }}</p>
+    <h1 id="hero-title">{{ .Params.hero.name }}<br><span>{{ .Params.hero.surname }}</span></h1>
+    <p class="role">
+      {{ .Params.hero.prefix }}
+      <span id="typewriter" aria-hidden="true">{{ index site.Params.hero.roles 0 }}</span>
+      <span class="caret" aria-hidden="true">|</span>
+      <span class="sr-only">{{ .Params.hero.role }}</span>
+    </p>
+    <p class="hero-location">{{ .Params.hero.location }}</p>
+    <div class="actions">
+      <a class="button magnetic" href="#projects">{{ .Params.hero.workLabel }} <span aria-hidden="true">↗</span></a>
+      {{ if site.Params.cvAvailable }}
+      <a class="button secondary" href="{{ "cv/Riyad_CV.pdf" | relURL }}" download>
+        {{ .Params.hero.cvLabel }}
+      </a>
+      {{ end }}
+    </div>
+    {{ partial "components/social-links.html" . }}
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="monogram">NR<span>.</span></div>
+    <span class="art-label">DATA / INSIGHTS / IMPACT</span>
+  </div>
+  <a class="scroll-hint" href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
+</section>

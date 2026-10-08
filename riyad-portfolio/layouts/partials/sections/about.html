@@ -1,0 +1,42 @@
+<section id="about" class="section container" aria-labelledby="about-title">
+  <span class="watermark" aria-hidden="true">ABOUT</span>
+  <p class="eyebrow">01 / About</p>
+  <h2 id="about-title">{{ .Params.about.subtitle }}</h2>
+  <div class="about-grid">
+    <div class="profile fade-in">
+      {{ $image := false }}
+      {{ with .Params.about.image }}
+        {{ $image = $.Resources.GetMatch . }}
+        {{ if not $image }}{{ $image = resources.Get . }}{{ end }}
+      {{ end }}
+      {{ if $image }}
+        {{ $small := $image.Resize "320x webp" }}
+        {{ $large := $image.Resize "640x webp" }}
+        <img src="{{ $small.RelPermalink }}"
+             srcset="{{ $small.RelPermalink }} 320w, {{ $large.RelPermalink }} 640w"
+             sizes="(max-width: 720px) 240px, 320px"
+             alt="{{ .Params.about.imageAlt }}"
+             width="{{ $small.Width }}" height="{{ $small.Height }}"
+             loading="lazy" decoding="async">
+      {{ else }}
+        <span class="profile-initials" aria-hidden="true">NR</span>
+      {{ end }}
+    </div>
+    <div class="fade-in">
+      <p class="about-text">{{ .Params.about.text }}</p>
+      <div class="stats">
+        {{ range site.Data.stats }}
+          {{ $value := .value | default 0 }}
+          {{ if eq .source "projects" }}
+            {{ $value = len (where site.RegularPages "Section" "projects") }}
+            {{ if ne .override nil }}{{ $value = .override }}{{ end }}
+          {{ end }}
+          <div class="stat">
+            <strong data-target="{{ $value }}">{{ $value }}</strong>
+            <span>{{ .label }}</span>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

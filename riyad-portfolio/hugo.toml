@@ -1,0 +1,68 @@
+baseURL = "https://naiemurrahmanriyad.github.io/"
+languageCode = "en-us"
+title = "Naiem Ur Rahman Riyad | Data Science Portfolio"
+enableRobotsTXT = true
+
+[params]
+description = "Personal portfolio of Naiem Ur Rahman Riyad, a Data Science / Data Analytics enthusiast in Mirpur-1, Dhaka, Bangladesh."
+themeColor = "#0b1014"
+themeToggle = false
+cvAvailable = true
+ogImage = "ogImage = "images/og.png"
+
+[params.hero]
+roles = ["Data Science enthusiast", "Data Analytics enthusiast"]
+
+[params.contact]
+provider = "formspree"
+action = "https://formspree.io/f/YOUR_FORM_ID"
+email = "rahman.riyad21@gmail.com"
+phone = "01864873043"
+location = "Mirpur-1, Dhaka, Bangladesh"
+
+[[params.socials]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/rahmanriyad-b4011a349/"
+
+[[params.socials]]
+name = "GitHub"
+url = "https://github.com/NaiemUrRahmanRiyad"
+
+[[params.socials]]
+name = "Facebook"
+url = "https://www.facebook.com/share/1AuqWm1fyi/"
+
+[[menus.main]]
+name = "About"
+url = "#about"
+weight = 1
+
+[[menus.main]]
+name = "Skills"
+url = "#skills"
+weight = 2
+
+[[menus.main]]
+name = "Projects"
+url = "#projects"
+weight = 3
+
+[[menus.main]]
+name = "Education"
+url = "#education"
+weight = 4
+
+[[menus.main]]
+name = "Contact"
+url = "#contact"
+weight = 5
+
+[sitemap]
+changeFreq = "monthly"
+priority = 0.5
+
+[minify]
+minifyOutput = true
+
+[caches.images]
+dir = ":cacheDir/images"

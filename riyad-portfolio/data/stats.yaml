@@ -1,0 +1,10 @@
+# Set override to a number to replace the automatic project count.
+- label: Projects
+  source: projects
+  override: null
+
+- label: Tools & Technologies
+  value: 8
+
+- label: Dashboards Built
+  value: 6
