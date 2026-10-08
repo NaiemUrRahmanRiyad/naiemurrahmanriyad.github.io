@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.Language.LanguageCode }}">
+<html lang="{{ site.Language.Lang }}">
 <head>
   {{ partial "head.html" . }}
 </head>
@@ -14,7 +14,7 @@
   <main id="main">
     {{ block "main" . }}{{ end }}
   </main>
-  {{ partial "footer.html" . }}
+  {{ partial "components/footer.html" . }}
   {{ partial "components/back-to-top.html" . }}
   {{ partial "components/toast.html" . }}
   {{ partial "scripts.html" . }}
