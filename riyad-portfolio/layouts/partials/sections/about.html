@@ -25,7 +25,7 @@
     <div class="fade-in">
       <p class="about-text">{{ .Params.about.text }}</p>
       <div class="stats">
-        {{ range site.Data.stats }}
+        {{ range hugo.Data.stats }}
           {{ $value := .value | default 0 }}
           {{ if eq .source "projects" }}
             {{ $value = len (where site.RegularPages "Section" "projects") }}

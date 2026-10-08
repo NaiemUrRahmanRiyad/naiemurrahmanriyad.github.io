@@ -3,7 +3,7 @@
   <p class="eyebrow">04 / Education</p>
   <h2 id="education-title">Education</h2>
   <ol class="timeline">
-    {{ range site.Data.education }}
+    {{ range hugo.Data.education }}
     {{ if not .draft }}
     <li class="fade-in">
       <div class="timeline-dot" aria-hidden="true"></div>

@@ -3,7 +3,7 @@
   <p class="eyebrow">02 / Skills</p>
   <h2 id="skills-title">Skills</h2>
   <div class="card-grid">
-    {{ range site.Data.skills }}
+    {{ range hugo.Data.skills }}
     <article class="card fade-in">
       <span class="skill-emoji" aria-hidden="true">{{ .emoji }}</span>
       <h3>{{ .name }}</h3>
@@ -15,7 +15,7 @@
   </div>
   <h3 class="tech-heading">Tools & Technologies</h3>
   <ul class="technology-grid">
-    {{ range site.Data.technologies }}
+    {{ range hugo.Data.technologies }}
     <li class="technology fade-in">
       {{ with resources.Get (printf "techs/%s" .icon) }}
         {{ if eq .MediaType.SubType "svg" }}
