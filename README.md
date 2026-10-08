@@ -21,9 +21,9 @@ hugo --gc --minify
 ## Deployment
 
 The GitHub Actions workflow at `.github/workflows/hugo.yaml` builds the Hugo
-site from `riyad-portfolio/` and deploys it to GitHub Pages on every push to
-`main`. The published site is available at
-https://naiemurrahmanriyad.github.io/.
+site from `riyad-portfolio/` and publishes its generated files to the root of
+`main` on every push. GitHub Pages is configured to deploy from that branch.
+The published site is available at https://naiemurrahmanriyad.github.io/.
 
 The contact form requires a real Formspree endpoint in
 `riyad-portfolio/hugo.toml`; the placeholder endpoint is not configured.
